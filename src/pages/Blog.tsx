@@ -151,39 +151,6 @@ const Blog = () => {
         </motion.div>
       </section>
 
-      {/* Stats Strip */}
-      <section className="bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-primary/90" />
-        <div className="relative container mx-auto px-6 lg:px-8 py-6 sm:py-8">
-          <div className="grid grid-cols-3 gap-6">
-            {[
-              { icon: BookOpen, value: `${blogPosts.length}+`, label: "Articles" },
-              { icon: Tag, value: `${categories.length - 1}`, label: "Categories" },
-              { icon: TrendingUp, value: "Weekly", label: "Updates" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={scaleIn}
-                className="text-center group"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-10 h-10 mx-auto mb-2 rounded-xl bg-primary-foreground/15 flex items-center justify-center"
-                >
-                  <stat.icon size={18} className="text-primary-foreground" />
-                </motion.div>
-                <p className="text-xl sm:text-2xl font-heading font-bold text-primary-foreground">{stat.value}</p>
-                <p className="text-xs text-primary-foreground/70 mt-0.5">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Category Filter */}
       <section className="border-b border-border sticky top-16 z-20 bg-background/95 backdrop-blur-sm">
