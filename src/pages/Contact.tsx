@@ -48,7 +48,7 @@ const slideInRight = {
 const contactInfo = [
   { icon: MapPin, label: "Business Presence", value: "India | Dubai (UAE) | Oman", color: "bg-primary/10" },
   { icon: Phone, label: "Phone", value: "+91 XXXXXXXXXX", color: "bg-primary/10" },
-  { icon: Mail, label: "Email", value: "contact@alhashmi.com", color: "bg-primary/10" },
+  { icon: Mail, label: "Email", value: "contact@khadriagroups.com", color: "bg-primary/10" },
   { icon: Clock, label: "Business Hours", value: "Mon–Sat, 9 AM – 6 PM (IST / GST)", color: "bg-primary/10" },
 ];
 
