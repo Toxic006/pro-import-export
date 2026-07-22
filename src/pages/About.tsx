@@ -1,17 +1,29 @@
-import { motion } from "framer-motion";
-import { Shield, Globe, Handshake, Film, Award, Users, MapPin, Briefcase, ChevronRight, Droplets, Gem, Factory, Clapperboard } from "lucide-react";
-import { useState } from "react";
-import businessPartnership from "@/assets/business-partnership.jpg";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import {
+  ArrowRight,
+  Sparkles,
+  Shield,
+  Globe,
+  Award,
+  CheckCircle2,
+  Target,
+  Heart,
+  Users,
+  Handshake,
+  MapPin,
+  Film,
+  Quote,
+  Star,
+  Compass,
+} from "lucide-react";
+import portrait from "@/assets/brand/syed-sharfuddin.jpeg";
+import logo from "@/assets/brand/khadria-logo.jpeg";
 import heroPort from "@/assets/hero-port.jpg";
-import filmProduction from "@/assets/film-production.jpg";
-import dubaiOps from "@/assets/dubai-operations.jpg";
-import indiaOps from "@/assets/india-operations.jpg";
-import goldBars from "@/assets/gold-bars.jpg";
-import oilRefinery from "@/assets/oil-refinery.jpg";
-import copperTrading from "@/assets/copper-trading.jpg";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -19,474 +31,412 @@ const fadeUp = {
   }),
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    transition: { delay: i * 0.08, duration: 0.5, ease: "easeOut" as const },
-  }),
-};
-
-const filmIndustries = [
-  { name: "Hindi", aka: "Bollywood", color: "from-primary/80 to-primary/40" },
-  { name: "Tamil", aka: "Kollywood", color: "from-primary/70 to-primary/30" },
-  { name: "Telugu", aka: "Tollywood", color: "from-primary/80 to-primary/40" },
-  { name: "Kannada", aka: "Sandalwood", color: "from-primary/70 to-primary/30" },
-  { name: "Malayalam", aka: "Mollywood", color: "from-primary/80 to-primary/40" },
-  { name: "Bengali", aka: "Tollywood", color: "from-primary/70 to-primary/30" },
+const values = [
+  { icon: Shield, title: "Integrity First", desc: "Every deal is LC-backed and fully documented. No shortcuts." },
+  { icon: Award, title: "Certified Quality", desc: "ISO, SGS, LBMA good-delivery, HACCP — the standards that matter." },
+  { icon: Globe, title: "Global Reach", desc: "Operating hubs in India, Dubai and Oman with worldwide shipping." },
+  { icon: Heart, title: "Long-term Trust", desc: "Two decades of repeat business built on transparent partnerships." },
+  { icon: Users, title: "People-first Trade", desc: "Fair pricing, faithful contracts and communication that respects your time." },
+  { icon: Compass, title: "Diversified Vision", desc: "From bullion to blockbusters — one house, six verticals, endless focus." },
 ];
 
-const operationsData = [
-  {
-    region: "India",
-    image: indiaOps,
-    items: [
-      "Import of copper wire (Millberry and related grades)",
-      "Import of non-ferrous and industrial metals",
-      "Long-term buyer–seller contracts",
-      "LC-based and documentation-supported trade",
-    ],
-  },
-  {
-    region: "Dubai & Oman",
-    image: dubaiOps,
-    items: [
-      "Gold trading and precious metals",
-      "Oil and petroleum products including EN590 (10 PPM)",
-      "Diesel and derivatives supply",
-      "Collaboration with refinery-linked suppliers and authorized mandates",
-    ],
-  },
+const filmIndustries = ["Hindi (Bollywood)", "Tamil (Kollywood)", "Telugu (Tollywood)", "Malayalam (Mollywood)", "Kannada (Sandalwood)", "Bengali (Tollywood-BN)"];
+
+const timeline = [
+  { year: "2004", title: "Foundations", desc: "Syed Sharfuddin begins commodity trading operations from India." },
+  { year: "2010", title: "Gulf Expansion", desc: "Dubai office established for Gold and petroleum products." },
+  { year: "2015", title: "Oman Hub", desc: "Muscat operations open for copper, chrome and manganese trade." },
+  { year: "2019", title: "Film Production", desc: "Diversification into Indian cinema across six film industries." },
+  { year: "2024", title: "Khadria Groups", desc: "Consolidation under the Khadria Groups brand — 37+ product lines." },
 ];
 
 const About = () => {
-  const [activeOp, setActiveOp] = useState(0);
+  const [activeRegion, setActiveRegion] = useState<"india" | "dubai" | "oman">("india");
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const regions = {
+    india: {
+      title: "India Operations",
+      subtitle: "Head office · Film production · Precious metals",
+      points: [
+        "Head office and film production headquarters",
+        "Sourcing hub for precious metals, iron ore, coal and agri commodities",
+        "Six-language film production (Hindi, Tamil, Telugu, Malayalam, Kannada, Bengali)",
+        "Domestic distribution of edible oils and industrial chemicals",
+      ],
+    },
+    dubai: {
+      title: "Dubai · UAE Operations",
+      subtitle: "Trade finance · Gold & bullion · Petroleum",
+      points: [
+        "Gulf regional office managing LC, SBLC and DLC issuance",
+        "Gold, silver and diamond trading with LBMA-standard bullion",
+        "Petroleum products bunkering and refining feedstock deals",
+        "Access to European, African and Asian counterparties",
+      ],
+    },
+    oman: {
+      title: "Oman Operations",
+      subtitle: "Copper · Chrome · Shipping & logistics",
+      points: [
+        "Middle East logistics hub with direct port access",
+        "Copper cathodes, chrome ore and manganese ore export",
+        "Bauxite and industrial chemicals for regional refineries",
+        "Strategic bridge between GCC and Indian markets",
+      ],
+    },
+  };
 
   return (
-    <main className="pt-16">
-      {/* Hero Banner */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
-        <motion.img
-          src={heroPort}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden="true"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" as const }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground/60 to-foreground/80" />
-        <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
+    <main className="overflow-hidden">
+      {/* Hero */}
+      <section ref={heroRef} className="relative min-h-[60svh] flex items-center justify-center overflow-hidden">
+        <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/85" />
+
+        <motion.div style={{ opacity: heroOpacity }} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-14">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-1.5 mb-6"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-5 backdrop-blur-sm"
           >
-            <Briefcase size={14} className="text-primary-foreground" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary-foreground">Est. Business Profile</span>
+            <Sparkles size={14} className="text-primary" />
+            <span className="text-primary font-semibold text-[11px] sm:text-xs uppercase tracking-[0.15em]">About Khadria Groups</span>
           </motion.div>
+
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl font-heading font-bold text-primary-foreground drop-shadow-lg"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-3xl sm:text-5xl md:text-6xl font-heading font-bold leading-[1.1] max-w-4xl mx-auto text-white"
+            style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
           >
-            About Us
+            Twenty years of <span className="text-primary">honest trade.</span>
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-4 text-primary-foreground/80 max-w-2xl mx-auto text-lg"
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-5 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-white/80"
           >
-            Discover our journey in global trade, ethical business practices, and creative ventures across three continents.
+            From bullion vaults in Dubai to iron mines in India and refineries in Oman — meet the family behind Khadria Groups.
           </motion.p>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Stats Strip */}
-      <section className="relative -mt-10 z-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 bg-background rounded-2xl shadow-xl border border-border overflow-hidden"
-          >
-            {[
-              { value: "3+", label: "Countries" },
-              { value: "6", label: "Film Industries" },
-              { value: "10+", label: "Product Lines" },
-              { value: "100%", label: "LC-Backed Trade" },
-            ].map((stat, i) => (
-              <div key={stat.label} className={`p-6 md:p-8 text-center ${i < 3 ? "border-r border-border" : ""} ${i < 2 ? "border-b md:border-b-0 border-border" : i === 2 ? "border-b md:border-b-0 border-border md:border-r" : ""}`}>
-                <p className="text-2xl md:text-3xl font-heading font-bold text-primary">{stat.value}</p>
-                <p className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Profile */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Founder */}
+      <section className="py-16 sm:py-24 lg:py-28 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            {/* Portrait */}
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              variants={fadeUp}
-              custom={0}
-              className="relative group"
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-5"
             >
-              <img
-                src={businessPartnership}
-                alt="Business partnership"
-                className="rounded-2xl shadow-xl w-full h-[350px] md:h-[450px] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-foreground/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <motion.div
-                className="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0"
-              >
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-primary" />
-                  <span className="text-sm font-medium text-foreground">India | Dubai (UAE) | Oman</span>
+              <div className="relative max-w-md mx-auto">
+                <motion.div
+                  className="absolute -inset-4 rounded-[2rem] border-2 border-primary/15"
+                  animate={{ rotate: [0, -3, 0] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl aspect-[4/5] bg-foreground">
+                  <img
+                    src={portrait}
+                    alt="Syed Sharfuddin Al Hashmi, Founder"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <div className="absolute inset-x-4 bottom-4 sm:inset-x-5 sm:bottom-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={12} className="text-primary fill-primary" />
+                      ))}
+                    </div>
+                    <p className="font-heading font-bold text-white text-xl sm:text-2xl leading-tight">Syed Sharfuddin Al Hashmi</p>
+                    <p className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-widest mt-1">Founder · Chairman</p>
+                  </div>
                 </div>
-              </motion.div>
+
+                {/* logo badge */}
+                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-4 ring-background shadow-xl bg-black">
+                  <img src={logo} alt="Khadria Groups emblem" className="w-full h-full object-cover" />
+                </div>
+              </div>
             </motion.div>
-            <div>
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-                Professional Overview
-              </motion.p>
-              <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold text-foreground leading-tight">
-                Syed Sharfuddin <span className="text-gradient">Al Hashmi</span>
-              </motion.h2>
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="mt-6 text-muted-foreground leading-relaxed">
-                Syed Sharfuddin Al Hashmi is an international businessman, entrepreneur, and film producer with diversified business interests across metals trading, energy commodities, precious metals, and the entertainment industry. Belonging to the noble lineage of Prophet Muhammad (ﷺ), descendant of Imam Hassan (RA) and Imam Hussain (RA), with business presence in India, Dubai (UAE), and Oman.
-              </motion.p>
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3} className="mt-4 text-muted-foreground leading-relaxed">
-                The business focuses on ethical trade practices, transparency, and long-term global partnerships, establishing secure LC-based trade agreements with international partners worldwide.
-              </motion.p>
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={4} className="mt-8 flex flex-wrap gap-3">
-                {["Metals Trading", "Energy Commodities", "Precious Metals", "Film Production"].map((tag) => (
-                  <span key={tag} className="px-4 py-2 bg-primary/5 border border-primary/15 rounded-full text-sm font-medium text-foreground hover:bg-primary/10 hover:border-primary/30 transition-colors duration-300 cursor-default">
-                    {tag}
-                  </span>
+
+            {/* Bio */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-7"
+            >
+              <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
+                <Sparkles size={14} /> Our Founder
+              </span>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
+                The vision behind <span className="text-gradient">Khadria Groups.</span>
+              </h2>
+
+              <div className="mt-6 relative pl-6 border-l-2 border-primary/30">
+                <Quote size={20} className="absolute -left-3 top-0 bg-background text-primary" />
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed italic">
+                  "Trade is trust made tangible. Every gram of gold, every barrel of oil, every reel of film we handle is a promise kept — on time, on spec, with dignity."
+                </p>
+                <p className="mt-3 text-sm font-semibold text-foreground">— Syed Sharfuddin Al Hashmi</p>
+              </div>
+
+              <div className="mt-8 space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p>
+                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating between India, the UAE and Oman.
+                </p>
+                <p>
+                  What began as a small precious-metals desk has grown into a 37-product portfolio spanning gold and diamonds, copper cathodes and iron ore, petroleum and LNG, edible oils and sugar, industrial chemicals — and a thriving global film-production arm covering six Indian cinema industries.
+                </p>
+                <p>
+                  Khadria's edge is old-fashioned: personal relationships, LC-backed contracts, and lab-tested quality on every shipment.
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
+                {[{ k: "20+", v: "Years" }, { k: "3", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
+                  <div key={s.k} className="border-l-2 border-primary/40 pl-3">
+                    <p className="font-heading font-bold text-2xl sm:text-3xl text-foreground">{s.k}</p>
+                    <p className="text-[11px] text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
+                  </div>
                 ))}
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Business Operations - Interactive Tabs */}
-      <section className="section-alt py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-              Global Presence
-            </motion.p>
-            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-              Business Operations
-            </motion.h2>
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="mt-4 text-muted-foreground">
-              Strategic operations spanning across India, Dubai, and Oman with diversified trade portfolios.
-            </motion.p>
+      {/* Regional operations tabs */}
+      <section className="py-16 sm:py-24 bg-section-alt">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
+              <Globe size={14} /> Where We Operate
+            </span>
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
+              Three regions. <span className="text-gradient">One trusted name.</span>
+            </h2>
           </div>
 
-          {/* Region Tabs */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="flex justify-center gap-4 mb-10">
-            {operationsData.map((op, i) => (
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {(["india", "dubai", "oman"] as const).map((r) => (
               <button
-                key={op.region}
-                onClick={() => setActiveOp(i)}
-                className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${
-                  activeOp === i
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                    : "bg-background border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                key={r}
+                onClick={() => setActiveRegion(r)}
+                className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all ${
+                  activeRegion === r ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" : "bg-card border border-border text-foreground hover:border-primary/40"
                 }`}
               >
-                <MapPin size={14} className="inline mr-2" />
-                {op.region}
+                {r === "india" ? "India" : r === "dubai" ? "Dubai · UAE" : "Oman"}
               </button>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Active Region Content */}
           <motion.div
-            key={activeOp}
+            key={activeRegion}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="grid lg:grid-cols-2 gap-10 items-center"
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto bg-card border border-border rounded-2xl p-6 sm:p-8"
           >
-            <div className="relative overflow-hidden rounded-2xl group">
-              <img
-                src={operationsData[activeOp].image}
-                alt={operationsData[activeOp].region}
-                className="w-full h-[300px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <h3 className="text-2xl font-heading font-bold text-primary-foreground">{operationsData[activeOp].region}</h3>
-                <p className="text-primary-foreground/70 text-sm">Active Operations</p>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                <MapPin size={22} className="text-primary" />
+              </div>
+              <div>
+                <h3 className="font-heading font-bold text-xl sm:text-2xl text-foreground">{regions[activeRegion].title}</h3>
+                <p className="text-xs sm:text-sm text-primary font-semibold">{regions[activeRegion].subtitle}</p>
               </div>
             </div>
-            <div className="space-y-4">
-              {operationsData[activeOp].items.map((item, i) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.4 }}
-                  className="group flex items-start gap-4 p-5 rounded-xl bg-background border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                    <ChevronRight size={18} className="text-primary group-hover:translate-x-0.5 transition-transform duration-300" />
-                  </div>
-                  <p className="text-foreground font-medium leading-relaxed pt-1.5">{item}</p>
-                </motion.div>
+            <ul className="mt-5 space-y-2.5">
+              {regions[activeRegion].points.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground">
+                  <CheckCircle2 size={16} className="text-primary mt-0.5 shrink-0" />
+                  <span>{p}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
         </div>
       </section>
 
-      {/* Trade Products Showcase */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-              What We Trade
-            </motion.p>
-            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-              Our Trade Portfolio
-            </motion.h2>
+      {/* Values */}
+      <section className="py-16 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
+              <Heart size={14} /> Our Values
+            </span>
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
+              What we <span className="text-gradient">stand for.</span>
+            </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: Gem, title: "Precious Metals", desc: "Gold trading and precious metals through Dubai and Oman markets with verified refinery partnerships.", image: goldBars },
-              { icon: Factory, title: "Industrial Metals", desc: "Copper wire (Millberry grade), non-ferrous metals, and industrial materials with LC-backed contracts.", image: copperTrading },
-              { icon: Droplets, title: "Oil & Petroleum", desc: "EN590 (10 PPM), diesel, and derivatives through refinery-linked suppliers and authorized mandates.", image: oilRefinery },
-            ].map((product, i) => (
-              <motion.div
-                key={product.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={scaleIn}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-background hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
-              >
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                  <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-background/90 backdrop-blur-sm flex items-center justify-center border border-border group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
-                    <product.icon size={20} className="text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{product.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{product.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Film Production */}
-      <section className="section-alt py-20 lg:py-28 overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-                Entertainment Vertical
-              </motion.p>
-              <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold text-foreground leading-tight">
-                Film <span className="text-gradient">Production</span>
-              </motion.h2>
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="mt-6 text-muted-foreground leading-relaxed">
-                Beyond international trade, Syed Sharfuddin Al Hashmi is actively involved as a Film Producer across multiple Indian film industries, contributing to the growth of regional cinema and fostering creative talent.
-              </motion.p>
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3} className="mt-4 text-muted-foreground leading-relaxed">
-                With productions spanning six major Indian film industries, the focus is on quality storytelling, cultural representation, and strategic investment in the entertainment sector.
-              </motion.p>
-
-              {/* Film Industries Grid */}
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={4} className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {filmIndustries.map((industry, i) => (
-                  <motion.div
-                    key={industry.name}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="relative p-4 rounded-xl bg-background border border-border hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-default overflow-hidden group"
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-                    <div className="relative">
-                      <Clapperboard size={16} className="text-primary mb-2" />
-                      <p className="font-bold text-foreground text-sm">{industry.name}</p>
-                      <p className="text-xs text-muted-foreground">{industry.aka}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={2}
-              className="relative group"
-            >
-              <img
-                src={filmProduction}
-                alt="Film production set"
-                className="rounded-2xl shadow-xl w-full h-[350px] md:h-[500px] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-foreground/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Film size={20} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-foreground text-sm">Multi-Industry Producer</p>
-                      <p className="text-xs text-muted-foreground">Active across 6 Indian film industries</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-              What Drives Us
-            </motion.p>
-            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-              Our Core Values
-            </motion.h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { icon: Shield, title: "Integrity", desc: "Upholding the highest ethical standards in every transaction, ensuring full compliance and transparent documentation." },
-              { icon: Globe, title: "Global Reach", desc: "Operating seamlessly across India, UAE, and Oman with robust international trade networks and partnerships." },
-              { icon: Handshake, title: "Trust", desc: "Building long-term relationships through transparent, secure LC-based trade practices and verified agreements." },
-              { icon: Award, title: "Excellence", desc: "Delivering premium quality products with full documentation, certifications, and regulatory compliance." },
-              { icon: Users, title: "Partnership", desc: "Strategic joint ventures and collaborations with refinery-linked suppliers for mutual growth and success." },
-              { icon: Film, title: "Diversification", desc: "Expanding into film production across six Indian industries while maintaining core trading operations." },
-            ].map((v, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {values.map((v, i) => (
               <motion.div
                 key={v.title}
                 custom={i}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={scaleIn}
+                variants={fadeUp}
                 whileHover={{ y: -6 }}
-                className="group bg-background p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-400 cursor-default"
+                className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/40 transition-all duration-500"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/25 transition-all duration-300">
-                  <v.icon size={26} className="text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:rotate-6 transition-all duration-500">
+                  <v.icon size={20} className="text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
-                <h3 className="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{v.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+                <h3 className="font-heading font-bold text-lg text-foreground group-hover:text-primary transition-colors">{v.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Business Objectives */}
-      <section className="section-alt py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
-          <div className="text-center mb-14">
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="text-primary font-semibold text-sm uppercase tracking-widest mb-2">
-              Our Vision
-            </motion.p>
-            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-              Business Objectives
-            </motion.h2>
+      {/* Timeline */}
+      <section className="py-16 sm:py-24 bg-section-alt">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
+              <Target size={14} /> Our Journey
+            </span>
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
+              Two decades of <span className="text-gradient">growth.</span>
+            </h2>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
-            {[
-              { title: "Direct Refinery Partnerships", desc: "Establishing direct supply lines with verified refineries for precious metals and petroleum products." },
-              { title: "Long-term Oil Contracts", desc: "Securing sustainable, long-term contracts for EN590, diesel, and petroleum derivatives." },
-              { title: "Metal Supply Agreements", desc: "Building reliable supply chains for copper wire, non-ferrous and industrial metals." },
-              { title: "Strategic Joint Ventures", desc: "Partnering with international businesses for mutual growth across trade verticals." },
-              { title: "Film Investment", desc: "Expanding film production and investment collaborations across Indian cinema industries." },
-              { title: "Global Expansion", desc: "Extending business footprint into new international markets with ethical trade practices." },
-            ].map((obj, i) => (
+
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-4 sm:left-1/2 -translate-x-0 sm:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/20" />
+            {timeline.map((t, i) => (
               <motion.div
-                key={obj.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
+                key={t.year}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                variants={fadeUp}
-                whileHover={{ scale: 1.02 }}
-                className="group flex items-start gap-4 p-5 md:p-6 rounded-xl bg-background border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`relative flex flex-col sm:flex-row items-start gap-6 mb-8 ${i % 2 === 1 ? "sm:flex-row-reverse" : ""}`}
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
-                  <span className="text-primary font-bold text-sm group-hover:text-primary-foreground transition-colors duration-300">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-foreground mb-1">{obj.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{obj.desc}</p>
+                <div className="hidden sm:block flex-1" />
+                <div className="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-background z-10" />
+                <div className="pl-12 sm:pl-0 flex-1">
+                  <div className="bg-card border border-border rounded-xl p-5 hover:border-primary/40 hover:shadow-lg transition-all">
+                    <span className="text-primary font-heading font-bold text-lg">{t.year}</span>
+                    <h4 className="font-heading font-bold text-base text-foreground mt-1">{t.title}</h4>
+                    <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{t.desc}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Film production */}
+      <section className="py-16 sm:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
+                <Film size={14} /> Film Production Arm
+              </span>
+              <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
+                Stories worth <span className="text-gradient">telling.</span>
+              </h2>
+              <p className="mt-5 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Beyond commodities, Khadria Groups produces feature films, web series and ad films across <strong className="text-foreground">six major Indian film industries.</strong> From concept and casting to worldwide distribution, we back stories that carry Indian craft to global audiences.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-2.5">
+                {filmIndustries.map((f, i) => (
+                  <motion.div
+                    key={f}
+                    custom={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    className="flex items-center gap-2.5 bg-card border border-border rounded-lg px-3 py-2.5 hover:border-primary/40 hover:bg-primary/5 transition-all"
+                  >
+                    <Film size={14} className="text-primary shrink-0" />
+                    <span className="text-xs sm:text-sm font-medium text-foreground">{f}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative"
+            >
+              <div className="bg-gradient-to-br from-foreground to-[#0d0d0f] text-white rounded-2xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary/20 blur-3xl" />
+                <div className="relative">
+                  <Film size={40} className="text-primary mb-6" />
+                  <h3 className="font-heading font-bold text-2xl sm:text-3xl mb-4">Lights. Camera. The world.</h3>
+                  <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+                    We produce movies, web series, TV shows, documentaries and ad films — with shooting units across Asia, Europe, the Middle East and beyond.
+                  </p>
+                  <div className="mt-6 grid grid-cols-2 gap-4">
+                    {["Concept & Development", "Film Production", "Post Production", "Global Distribution"].map((s) => (
+                      <div key={s} className="flex items-center gap-2 text-xs sm:text-sm text-white/80">
+                        <CheckCircle2 size={14} className="text-primary shrink-0" />
+                        <span>{s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            custom={0}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-foreground to-foreground/90 p-10 md:p-16 text-center"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 rounded-full blur-2xl" />
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-4">
-                Ready to Partner With Us?
-              </h2>
-              <p className="text-primary-foreground/70 max-w-xl mx-auto mb-8">
-                Whether you're interested in metals trading, energy commodities, or film production collaborations, we'd love to discuss how we can work together.
-              </p>
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/30 transition-shadow duration-300"
-              >
-                Get In Touch
-                <ChevronRight size={18} />
-              </motion.a>
-            </div>
-          </motion.div>
+      <section className="py-16 sm:py-20 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading font-bold text-2xl sm:text-4xl leading-tight max-w-2xl mx-auto">
+            Partner with a trade house that keeps its word.
+          </h2>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 h-12 px-7 rounded-full bg-primary-foreground text-primary font-semibold hover:shadow-xl transition-all"
+            >
+              <Handshake size={16} />
+              Start a Conversation
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 h-12 px-7 rounded-full border-2 border-primary-foreground/40 text-primary-foreground font-semibold hover:border-primary-foreground transition-colors"
+            >
+              Browse Catalog
+            </Link>
+          </div>
         </div>
       </section>
     </main>
