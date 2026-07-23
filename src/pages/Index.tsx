@@ -330,7 +330,7 @@ const Index = () => {
             {[
               { icon: Shield, title: "LC-Backed Deals", desc: "Every contract routed through international bank instruments." },
               { icon: Award, title: "Certified Quality", desc: "ISO, SGS, HACCP and LBMA good-delivery standards." },
-              { icon: Globe, title: "3-Country Reach", desc: "Operational hubs in India, Dubai (UAE) and Oman." },
+              { icon: Globe, title: "5-Country Reach", desc: "Hubs in India, Dubai (UAE), Oman, Saudi Arabia & Singapore." },
               { icon: Handshake, title: "Ethical Sourcing", desc: "Conflict-free minerals and transparent origin certificates." },
             ].map((f, i) => (
               <motion.div
