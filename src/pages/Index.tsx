@@ -200,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* ============ VERTICALS ============ */}
-      <section className="py-16 sm:py-24 lg:py-28 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
