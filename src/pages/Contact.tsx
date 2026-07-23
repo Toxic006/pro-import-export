@@ -46,17 +46,26 @@ const slideInRight = {
 };
 
 const contactInfo = [
-  { icon: MapPin, label: "Business Presence", value: "India | Dubai (UAE) | Oman", color: "bg-primary/10" },
-  { icon: Phone, label: "Phone", value: "+91 XXXXXXXXXX", color: "bg-primary/10" },
+  { icon: MapPin, label: "Business Presence", value: "India · Dubai · Oman · Saudi Arabia · Singapore", color: "bg-primary/10" },
+  { icon: Phone, label: "Phone (India)", value: "+91 98XXX XXXXX", color: "bg-primary/10" },
+  { icon: Phone, label: "Phone (UAE)", value: "+971 5X XXX XXXX", color: "bg-primary/10" },
   { icon: Mail, label: "Email", value: "contact@khadriagroups.com", color: "bg-primary/10" },
   { icon: Clock, label: "Business Hours", value: "Mon–Sat, 9 AM – 6 PM (IST / GST)", color: "bg-primary/10" },
 ];
 
 const trustBadges = [
   { icon: Shield, label: "LC-Based Contracts" },
-  { icon: Globe, label: "3+ Countries" },
+  { icon: Globe, label: "5 Countries" },
   { icon: CheckCircle2, label: "Full Documentation" },
   { icon: Handshake, label: "20+ Years Trust" },
+];
+
+const presenceCountries = [
+  { city: "India", desc: "Head office · Metals & film production", tag: "HQ" },
+  { city: "Dubai · UAE", desc: "Gold, petroleum & trade finance", tag: "Gulf" },
+  { city: "Oman", desc: "Copper, chrome & shipping logistics", tag: "GCC" },
+  { city: "Saudi Arabia", desc: "Agricultural sourcing & distribution", tag: "Agri" },
+  { city: "Singapore", desc: "Bank instrument trade & purchase (LC / SBLC / BG)", tag: "Finance" },
 ];
 
 const Contact = () => {
