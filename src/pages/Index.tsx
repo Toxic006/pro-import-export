@@ -406,7 +406,7 @@ const Index = () => {
       </section>
 
       {/* ============ CTA ============ */}
-      <section className="relative py-20 sm:py-28 overflow-hidden bg-foreground text-background">
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-foreground text-background">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
           backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--primary)), transparent 60%)`
         }} />
