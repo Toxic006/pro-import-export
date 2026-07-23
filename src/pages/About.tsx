@@ -113,7 +113,7 @@ const About = () => {
   };
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden bg-brand-soft">
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[60svh] flex items-center justify-center overflow-hidden">
         <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />
@@ -152,7 +152,7 @@ const About = () => {
       </section>
 
       {/* Founder */}
-      <section className="py-16 sm:py-24 lg:py-28 bg-background">
+      <section className="py-14 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Portrait */}
@@ -243,7 +243,7 @@ const About = () => {
       </section>
 
       {/* Regional operations tabs */}
-      <section className="py-16 sm:py-24 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
@@ -297,7 +297,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-16 sm:py-24 bg-background">
+      <section className="py-14 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
@@ -332,7 +332,7 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 sm:py-24 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
@@ -370,7 +370,7 @@ const About = () => {
       </section>
 
       {/* Film production */}
-      <section className="py-16 sm:py-24 bg-background">
+      <section className="py-14 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div
