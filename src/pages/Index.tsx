@@ -246,7 +246,7 @@ const Index = () => {
       </section>
 
       {/* ============ FEATURED PRODUCTS ============ */}
-      <section className="py-16 sm:py-24 lg:py-28">
+      <section className="py-14 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-14">
             <div className="max-w-2xl">
