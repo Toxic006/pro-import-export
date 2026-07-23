@@ -161,7 +161,8 @@ const Index = () => {
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: "50% 12%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
