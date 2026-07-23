@@ -355,22 +355,27 @@ const Index = () => {
       </section>
 
       {/* ============ GLOBAL PRESENCE ============ */}
-      <section className="py-16 sm:py-24 lg:py-28 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
               <Globe size={14} /> Our Global Presence
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
               Rooted in <span className="text-gradient">India</span>. Trading with the world.
             </h2>
+            <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+              Five strategic hubs across South Asia, the Gulf and Southeast Asia — one accountable trade house.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               { city: "India", desc: "Head office & film production hub. Precious metals and industrial metals trade.", tags: ["Metals", "Film Production", "Agri"] },
               { city: "Dubai · UAE", desc: "Regional gateway to the Gulf. LC issuance, gold & petroleum trading.", tags: ["Gold", "Petroleum", "Trade Finance"] },
               { city: "Oman", desc: "Middle East logistics hub. Copper, chrome, manganese and shipping ops.", tags: ["Copper", "Chrome", "Logistics"] },
+              { city: "Saudi Arabia", desc: "Agricultural sourcing & distribution across the Kingdom — grains, sugar and edible oils.", tags: ["Agriculture", "Edible Oils", "Sugar"] },
+              { city: "Singapore", desc: "Southeast Asia finance desk for bank instrument trade, purchase and monetization (LC · SBLC · BG).", tags: ["Bank Instruments", "LC / SBLC", "Trade Finance"] },
             ].map((c, i) => (
               <motion.div
                 key={c.city}
