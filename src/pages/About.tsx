@@ -44,14 +44,16 @@ const filmIndustries = ["Hindi (Bollywood)", "Tamil (Kollywood)", "Telugu (Tolly
 
 const timeline = [
   { year: "2004", title: "Foundations", desc: "Syed Sharfuddin begins commodity trading operations from India." },
-  { year: "2010", title: "Gulf Expansion", desc: "Dubai office established for Gold and petroleum products." },
+  { year: "2010", title: "Gulf Expansion", desc: "Dubai office established for gold and petroleum products." },
   { year: "2015", title: "Oman Hub", desc: "Muscat operations open for copper, chrome and manganese trade." },
   { year: "2019", title: "Film Production", desc: "Diversification into Indian cinema across six film industries." },
-  { year: "2024", title: "Khadria Groups", desc: "Consolidation under the Khadria Groups brand — 37+ product lines." },
+  { year: "2022", title: "Saudi Arabia Desk", desc: "Agricultural sourcing and distribution across the Kingdom." },
+  { year: "2023", title: "Singapore Finance", desc: "Bank instrument trade & purchase desk (LC · SBLC · BG) opens." },
+  { year: "2024", title: "Khadria Groups", desc: "Consolidation under one brand — 37+ product lines, 5 countries." },
 ];
 
 const About = () => {
-  const [activeRegion, setActiveRegion] = useState<"india" | "dubai" | "oman">("india");
+  const [activeRegion, setActiveRegion] = useState<"india" | "dubai" | "oman" | "saudi" | "singapore">("india");
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
@@ -86,6 +88,26 @@ const About = () => {
         "Copper cathodes, chrome ore and manganese ore export",
         "Bauxite and industrial chemicals for regional refineries",
         "Strategic bridge between GCC and Indian markets",
+      ],
+    },
+    saudi: {
+      title: "Saudi Arabia Operations",
+      subtitle: "Agriculture · Edible oils · Food-grade commodities",
+      points: [
+        "Agricultural sourcing and Kingdom-wide distribution",
+        "Sugar (ICUMSA 45), refined edible oils and grains supply",
+        "Long-term supply contracts with GCC food distributors",
+        "HACCP and food-grade certified logistics",
+      ],
+    },
+    singapore: {
+      title: "Singapore Operations",
+      subtitle: "Bank instruments · Trade finance · Structured deals",
+      points: [
+        "Bank instrument trade & purchase — LC, SBLC, DLC and BG",
+        "Monetization and discounting of financial instruments",
+        "Southeast Asia gateway for structured commodity finance",
+        "Compliance-first, KYC-driven counterparty onboarding",
       ],
     },
   };
