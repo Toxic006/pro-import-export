@@ -52,9 +52,10 @@ const Index = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, 120]);
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden bg-brand-soft">
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative min-h-[100svh] pt-24 sm:pt-28 pb-16 sm:pb-20 flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[92svh] pt-24 sm:pt-28 pb-12 sm:pb-16 flex items-center overflow-hidden">
+
         {/* Decorative background */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
