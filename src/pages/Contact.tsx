@@ -318,8 +318,43 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Global Presence grid */}
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
+              <Globe size={14} /> Business Presence
+            </span>
+            <h2 className="font-heading font-bold text-2xl sm:text-4xl md:text-5xl text-foreground leading-tight">
+              Present across <span className="text-gradient">5 countries.</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {presenceCountries.map((c, i) => (
+              <motion.div
+                key={c.city}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={scaleIn}
+                whileHover={{ y: -4 }}
+                className="group bg-card border border-border rounded-2xl p-4 sm:p-5 text-center hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all"
+              >
+                <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:rotate-6 transition-all">
+                  <MapPin size={18} className="text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <p className="font-heading font-bold text-sm sm:text-base text-foreground">{c.city}</p>
+                <p className="text-[11px] sm:text-xs text-muted-foreground mt-1 leading-snug">{c.desc}</p>
+                <span className="inline-block mt-3 text-[10px] bg-primary/10 text-primary font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">{c.tag}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="relative py-20 sm:py-28 overflow-hidden">
+      <section className="relative py-16 sm:py-24 overflow-hidden">
         <motion.img
           src={preciousMetals}
           alt=""
@@ -347,10 +382,10 @@ const Contact = () => {
               className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold max-w-3xl mx-auto leading-tight"
               style={{ color: "white", textShadow: "0 4px 20px rgba(0,0,0,0.4)" }}
             >
-              Operating Across <span className="text-primary">India, Dubai & Oman</span>
+              Operating Across <span className="text-primary">India, Dubai, Oman, Saudi Arabia & Singapore</span>
             </h2>
             <p className="mt-4 sm:mt-6 text-sm sm:text-base max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
-              With business presence in three countries, we're strategically positioned to serve your international trading needs.
+              With business presence across five strategic countries, we're positioned to serve your international trading needs end-to-end.
             </p>
           </motion.div>
         </div>
