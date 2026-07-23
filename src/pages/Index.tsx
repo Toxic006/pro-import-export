@@ -129,7 +129,7 @@ const Index = () => {
               >
                 {[
                   { k: "37+", v: "Products" },
-                  { k: "3", v: "Countries" },
+                  { k: "5", v: "Countries" },
                   { k: "20+", v: "Years Trust" },
                 ].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3 sm:pl-4">
