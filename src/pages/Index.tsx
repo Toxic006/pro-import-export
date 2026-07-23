@@ -52,9 +52,10 @@ const Index = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, 120]);
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden bg-brand-soft">
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative min-h-[100svh] pt-24 sm:pt-28 pb-16 sm:pb-20 flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[92svh] pt-24 sm:pt-28 pb-12 sm:pb-16 flex items-center overflow-hidden">
+
         {/* Decorative background */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-3xl" />
@@ -95,7 +96,7 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed"
               >
-                <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE) & Oman.</strong>
+                <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE), Oman, Saudi Arabia & Singapore.</strong>
               </motion.p>
 
               <motion.div
@@ -128,7 +129,7 @@ const Index = () => {
               >
                 {[
                   { k: "37+", v: "Products" },
-                  { k: "3", v: "Countries" },
+                  { k: "5", v: "Countries" },
                   { k: "20+", v: "Years Trust" },
                 ].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3 sm:pl-4">
@@ -160,7 +161,8 @@ const Index = () => {
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: "50% 12%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
@@ -198,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* ============ VERTICALS ============ */}
-      <section className="py-16 sm:py-24 lg:py-28 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -244,7 +246,7 @@ const Index = () => {
       </section>
 
       {/* ============ FEATURED PRODUCTS ============ */}
-      <section className="py-16 sm:py-24 lg:py-28">
+      <section className="py-14 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 sm:mb-14">
             <div className="max-w-2xl">
@@ -309,7 +311,7 @@ const Index = () => {
       </section>
 
       {/* ============ WHY US ============ */}
-      <section className="relative py-16 sm:py-24 lg:py-28 bg-gradient-to-br from-foreground to-[#0d0d0f] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-20 bg-gradient-to-br from-foreground to-[#0d0d0f] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{
           backgroundImage: "radial-gradient(circle at 20% 20%, hsl(var(--primary)), transparent 40%), radial-gradient(circle at 80% 80%, #c9a84c, transparent 40%)"
         }} />
@@ -328,7 +330,7 @@ const Index = () => {
             {[
               { icon: Shield, title: "LC-Backed Deals", desc: "Every contract routed through international bank instruments." },
               { icon: Award, title: "Certified Quality", desc: "ISO, SGS, HACCP and LBMA good-delivery standards." },
-              { icon: Globe, title: "3-Country Reach", desc: "Operational hubs in India, Dubai (UAE) and Oman." },
+              { icon: Globe, title: "5-Country Reach", desc: "Hubs in India, Dubai (UAE), Oman, Saudi Arabia & Singapore." },
               { icon: Handshake, title: "Ethical Sourcing", desc: "Conflict-free minerals and transparent origin certificates." },
             ].map((f, i) => (
               <motion.div
@@ -353,22 +355,27 @@ const Index = () => {
       </section>
 
       {/* ============ GLOBAL PRESENCE ============ */}
-      <section className="py-16 sm:py-24 lg:py-28 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
               <Globe size={14} /> Our Global Presence
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
               Rooted in <span className="text-gradient">India</span>. Trading with the world.
             </h2>
+            <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+              Five strategic hubs across South Asia, the Gulf and Southeast Asia — one accountable trade house.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               { city: "India", desc: "Head office & film production hub. Precious metals and industrial metals trade.", tags: ["Metals", "Film Production", "Agri"] },
               { city: "Dubai · UAE", desc: "Regional gateway to the Gulf. LC issuance, gold & petroleum trading.", tags: ["Gold", "Petroleum", "Trade Finance"] },
               { city: "Oman", desc: "Middle East logistics hub. Copper, chrome, manganese and shipping ops.", tags: ["Copper", "Chrome", "Logistics"] },
+              { city: "Saudi Arabia", desc: "Agricultural sourcing & distribution across the Kingdom — grains, sugar and edible oils.", tags: ["Agriculture", "Edible Oils", "Sugar"] },
+              { city: "Singapore", desc: "Southeast Asia finance desk for bank instrument trade, purchase and monetization (LC · SBLC · BG).", tags: ["Bank Instruments", "LC / SBLC", "Trade Finance"] },
             ].map((c, i) => (
               <motion.div
                 key={c.city}
@@ -399,7 +406,7 @@ const Index = () => {
       </section>
 
       {/* ============ CTA ============ */}
-      <section className="relative py-20 sm:py-28 overflow-hidden bg-foreground text-background">
+      <section className="relative py-16 sm:py-24 overflow-hidden bg-foreground text-background">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
           backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--primary)), transparent 60%)`
         }} />

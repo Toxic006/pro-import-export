@@ -34,7 +34,7 @@ const fadeUp = {
 const values = [
   { icon: Shield, title: "Integrity First", desc: "Every deal is LC-backed and fully documented. No shortcuts." },
   { icon: Award, title: "Certified Quality", desc: "ISO, SGS, LBMA good-delivery, HACCP — the standards that matter." },
-  { icon: Globe, title: "Global Reach", desc: "Operating hubs in India, Dubai and Oman with worldwide shipping." },
+  { icon: Globe, title: "Global Reach", desc: "Hubs across India, Dubai, Oman, Saudi Arabia and Singapore." },
   { icon: Heart, title: "Long-term Trust", desc: "Two decades of repeat business built on transparent partnerships." },
   { icon: Users, title: "People-first Trade", desc: "Fair pricing, faithful contracts and communication that respects your time." },
   { icon: Compass, title: "Diversified Vision", desc: "From bullion to blockbusters — one house, six verticals, endless focus." },
@@ -44,14 +44,16 @@ const filmIndustries = ["Hindi (Bollywood)", "Tamil (Kollywood)", "Telugu (Tolly
 
 const timeline = [
   { year: "2004", title: "Foundations", desc: "Syed Sharfuddin begins commodity trading operations from India." },
-  { year: "2010", title: "Gulf Expansion", desc: "Dubai office established for Gold and petroleum products." },
+  { year: "2010", title: "Gulf Expansion", desc: "Dubai office established for gold and petroleum products." },
   { year: "2015", title: "Oman Hub", desc: "Muscat operations open for copper, chrome and manganese trade." },
   { year: "2019", title: "Film Production", desc: "Diversification into Indian cinema across six film industries." },
-  { year: "2024", title: "Khadria Groups", desc: "Consolidation under the Khadria Groups brand — 37+ product lines." },
+  { year: "2022", title: "Saudi Arabia Desk", desc: "Agricultural sourcing and distribution across the Kingdom." },
+  { year: "2023", title: "Singapore Finance", desc: "Bank instrument trade & purchase desk (LC · SBLC · BG) opens." },
+  { year: "2024", title: "Khadria Groups", desc: "Consolidation under one brand — 37+ product lines, 5 countries." },
 ];
 
 const About = () => {
-  const [activeRegion, setActiveRegion] = useState<"india" | "dubai" | "oman">("india");
+  const [activeRegion, setActiveRegion] = useState<"india" | "dubai" | "oman" | "saudi" | "singapore">("india");
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
@@ -88,10 +90,30 @@ const About = () => {
         "Strategic bridge between GCC and Indian markets",
       ],
     },
+    saudi: {
+      title: "Saudi Arabia Operations",
+      subtitle: "Agriculture · Edible oils · Food-grade commodities",
+      points: [
+        "Agricultural sourcing and Kingdom-wide distribution",
+        "Sugar (ICUMSA 45), refined edible oils and grains supply",
+        "Long-term supply contracts with GCC food distributors",
+        "HACCP and food-grade certified logistics",
+      ],
+    },
+    singapore: {
+      title: "Singapore Operations",
+      subtitle: "Bank instruments · Trade finance · Structured deals",
+      points: [
+        "Bank instrument trade & purchase — LC, SBLC, DLC and BG",
+        "Monetization and discounting of financial instruments",
+        "Southeast Asia gateway for structured commodity finance",
+        "Compliance-first, KYC-driven counterparty onboarding",
+      ],
+    },
   };
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden bg-brand-soft">
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[60svh] flex items-center justify-center overflow-hidden">
         <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />
@@ -130,7 +152,7 @@ const About = () => {
       </section>
 
       {/* Founder */}
-      <section className="py-16 sm:py-24 lg:py-28 bg-background">
+      <section className="py-14 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Portrait */}
@@ -197,7 +219,7 @@ const About = () => {
 
               <div className="mt-8 space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating between India, the UAE and Oman.
+                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating across India, the UAE, Oman, Saudi Arabia and Singapore.
                 </p>
                 <p>
                   What began as a small precious-metals desk has grown into a 37-product portfolio spanning gold and diamonds, copper cathodes and iron ore, petroleum and LNG, edible oils and sugar, industrial chemicals — and a thriving global film-production arm covering six Indian cinema industries.
@@ -208,7 +230,7 @@ const About = () => {
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-                {[{ k: "20+", v: "Years" }, { k: "3", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
+                {[{ k: "20+", v: "Years" }, { k: "5", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3">
                     <p className="font-heading font-bold text-2xl sm:text-3xl text-foreground">{s.k}</p>
                     <p className="text-[11px] text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
@@ -221,27 +243,27 @@ const About = () => {
       </section>
 
       {/* Regional operations tabs */}
-      <section className="py-16 sm:py-24 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
               <Globe size={14} /> Where We Operate
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
-              Three regions. <span className="text-gradient">One trusted name.</span>
+              Five regions. <span className="text-gradient">One trusted name.</span>
             </h2>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {(["india", "dubai", "oman"] as const).map((r) => (
+            {(["india", "dubai", "oman", "saudi", "singapore"] as const).map((r) => (
               <button
                 key={r}
                 onClick={() => setActiveRegion(r)}
-                className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all ${
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all ${
                   activeRegion === r ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" : "bg-card border border-border text-foreground hover:border-primary/40"
                 }`}
               >
-                {r === "india" ? "India" : r === "dubai" ? "Dubai · UAE" : "Oman"}
+                {r === "india" ? "India" : r === "dubai" ? "Dubai · UAE" : r === "oman" ? "Oman" : r === "saudi" ? "Saudi Arabia" : "Singapore"}
               </button>
             ))}
           </div>
@@ -275,7 +297,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-16 sm:py-24 bg-background">
+      <section className="py-14 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
@@ -310,7 +332,7 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 sm:py-24 bg-section-alt">
+      <section className="py-14 sm:py-20 bg-brand-soft-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs uppercase tracking-widest mb-3">
@@ -348,7 +370,7 @@ const About = () => {
       </section>
 
       {/* Film production */}
-      <section className="py-16 sm:py-24 bg-background">
+      <section className="py-14 sm:py-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div

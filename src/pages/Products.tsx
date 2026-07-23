@@ -56,7 +56,7 @@ const Products = () => {
   }, [activeCat, query]);
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden bg-brand-soft">
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[60svh] sm:min-h-[55svh] flex items-center justify-center overflow-hidden">
         <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />
@@ -233,7 +233,7 @@ const Products = () => {
             {[
               { k: "LC / SBLC", v: "Backed contracts" },
               { k: "ISO · SGS", v: "Lab certified" },
-              { k: "3 Regions", v: "India · UAE · Oman" },
+              { k: "5 Regions", v: "India · UAE · Oman · KSA · SG" },
               { k: "20+ Years", v: "Trade experience" },
             ].map((s, i) => (
               <motion.div

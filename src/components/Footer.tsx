@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">
-              A global trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating across India, Dubai and Oman.
+              A global trade house dealing in precious metals, industrial commodities, petroleum products, agri commodities, bank instruments and premium film production — operating across India, Dubai, Oman, Saudi Arabia and Singapore.
             </p>
             <div className="mt-6 flex items-center gap-3 text-xs text-white/50">
               <Shield size={14} className="text-primary" />
@@ -69,11 +69,14 @@ const Footer = () => {
             <div className="space-y-3.5">
               <div className="flex items-start gap-3 text-sm text-white/60">
                 <MapPin size={16} className="mt-0.5 text-primary shrink-0" />
-                <span>India · Dubai (UAE) · Oman</span>
+                <span>India · Dubai (UAE) · Oman · Saudi Arabia · Singapore</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-white/60">
-                <Phone size={16} className="text-primary shrink-0" />
-                <span>+91 · +971 (on request)</span>
+              <div className="flex items-start gap-3 text-sm text-white/60">
+                <Phone size={16} className="mt-0.5 text-primary shrink-0" />
+                <div className="flex flex-col">
+                  <span>+91 98XXX XXXXX</span>
+                  <span>+971 5X XXX XXXX</span>
+                </div>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <Mail size={16} className="text-primary shrink-0" />
@@ -81,7 +84,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <Globe size={16} className="text-primary shrink-0" />
-                <span>Serving 3 continents</span>
+                <span>Serving 5 countries</span>
               </div>
             </div>
           </div>
