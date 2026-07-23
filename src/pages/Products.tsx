@@ -233,7 +233,7 @@ const Products = () => {
             {[
               { k: "LC / SBLC", v: "Backed contracts" },
               { k: "ISO · SGS", v: "Lab certified" },
-              { k: "3 Regions", v: "India · UAE · Oman" },
+              { k: "5 Regions", v: "India · UAE · Oman · KSA · SG" },
               { k: "20+ Years", v: "Trade experience" },
             ].map((s, i) => (
               <motion.div

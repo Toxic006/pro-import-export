@@ -219,7 +219,7 @@ const About = () => {
 
               <div className="mt-8 space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating between India, the UAE and Oman.
+                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating across India, the UAE, Oman, Saudi Arabia and Singapore.
                 </p>
                 <p>
                   What began as a small precious-metals desk has grown into a 37-product portfolio spanning gold and diamonds, copper cathodes and iron ore, petroleum and LNG, edible oils and sugar, industrial chemicals — and a thriving global film-production arm covering six Indian cinema industries.
@@ -230,7 +230,7 @@ const About = () => {
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-                {[{ k: "20+", v: "Years" }, { k: "3", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
+                {[{ k: "20+", v: "Years" }, { k: "5", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3">
                     <p className="font-heading font-bold text-2xl sm:text-3xl text-foreground">{s.k}</p>
                     <p className="text-[11px] text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
@@ -250,20 +250,20 @@ const About = () => {
               <Globe size={14} /> Where We Operate
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
-              Three regions. <span className="text-gradient">One trusted name.</span>
+              Five regions. <span className="text-gradient">One trusted name.</span>
             </h2>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {(["india", "dubai", "oman"] as const).map((r) => (
+            {(["india", "dubai", "oman", "saudi", "singapore"] as const).map((r) => (
               <button
                 key={r}
                 onClick={() => setActiveRegion(r)}
-                className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all ${
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all ${
                   activeRegion === r ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" : "bg-card border border-border text-foreground hover:border-primary/40"
                 }`}
               >
-                {r === "india" ? "India" : r === "dubai" ? "Dubai · UAE" : "Oman"}
+                {r === "india" ? "India" : r === "dubai" ? "Dubai · UAE" : r === "oman" ? "Oman" : r === "saudi" ? "Saudi Arabia" : "Singapore"}
               </button>
             ))}
           </div>
