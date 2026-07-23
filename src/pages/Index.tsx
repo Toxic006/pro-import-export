@@ -311,7 +311,7 @@ const Index = () => {
       </section>
 
       {/* ============ WHY US ============ */}
-      <section className="relative py-16 sm:py-24 lg:py-28 bg-gradient-to-br from-foreground to-[#0d0d0f] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-20 bg-gradient-to-br from-foreground to-[#0d0d0f] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{
           backgroundImage: "radial-gradient(circle at 20% 20%, hsl(var(--primary)), transparent 40%), radial-gradient(circle at 80% 80%, #c9a84c, transparent 40%)"
         }} />
