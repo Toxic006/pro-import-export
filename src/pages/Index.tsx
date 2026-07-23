@@ -96,7 +96,7 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed"
               >
-                <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE) & Oman.</strong>
+                <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE), Oman, Saudi Arabia & Singapore.</strong>
               </motion.p>
 
               <motion.div
