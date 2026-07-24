@@ -47,9 +47,9 @@ const slideInRight = {
 
 const contactInfo = [
   { icon: MapPin, label: "Business Presence", value: "India · Dubai · Oman · Saudi Arabia · Singapore", color: "bg-primary/10" },
-  { icon: Phone, label: "Phone (India)", value: "+91 98XXX XXXXX", color: "bg-primary/10" },
-  { icon: Phone, label: "Phone (UAE)", value: "+971 5X XXX XXXX", color: "bg-primary/10" },
-  { icon: Mail, label: "Email", value: "contact@khadriagroups.com", color: "bg-primary/10" },
+  { icon: Phone, label: "Phone", value: "+91 81974 25180", color: "bg-primary/10", href: "tel:+919197425180" },
+  { icon: Phone, label: "Phone", value: "+91 72592 25180", color: "bg-primary/10", href: "tel:+917259225180" },
+  { icon: Mail, label: "Email", value: "syed@khadria786.co.in", color: "bg-primary/10", href: "mailto:syed@khadria786.co.in" },
   { icon: Clock, label: "Business Hours", value: "Mon–Sat, 9 AM – 6 PM (IST / GST)", color: "bg-primary/10" },
 ];
 

@@ -54,7 +54,7 @@ const Index = () => {
   return (
     <main className="overflow-hidden bg-brand-soft">
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative min-h-[92svh] pt-24 sm:pt-28 pb-12 sm:pb-16 flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative pt-24 sm:pt-28 pb-10 sm:pb-14 lg:min-h-[100svh] lg:flex lg:items-center overflow-hidden">
 
         {/* Decorative background */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
@@ -83,7 +83,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground"
+                className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-7xl leading-[1.05] tracking-tight text-foreground"
               >
                 Trade, <span className="text-gradient">Trust</span> &
                 <br />
@@ -125,7 +125,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-10 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
+                className="mt-8 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
               >
                 {[
                   { k: "37+", v: "Products" },
@@ -157,7 +157,7 @@ const Index = () => {
                 <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl" />
 
                 {/* Portrait frame */}
-                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5]">
+                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-[5/6] lg:max-h-[68vh] lg:mx-auto">
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"

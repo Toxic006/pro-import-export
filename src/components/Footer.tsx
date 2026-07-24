@@ -74,13 +74,13 @@ const Footer = () => {
               <div className="flex items-start gap-3 text-sm text-white/60">
                 <Phone size={16} className="mt-0.5 text-primary shrink-0" />
                 <div className="flex flex-col">
-                  <span>+91 98XXX XXXXX</span>
-                  <span>+971 5X XXX XXXX</span>
+                  <a href="tel:+919197425180" className="hover:text-primary transition-colors">+91 81974 25180</a>
+                  <a href="tel:+917259225180" className="hover:text-primary transition-colors">+91 72592 25180</a>
                 </div>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <Mail size={16} className="text-primary shrink-0" />
-                <span>contact@khadriagroups.com</span>
+                <a href="mailto:syed@khadria786.co.in" className="hover:text-primary transition-colors">syed@khadria786.co.in</a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <Globe size={16} className="text-primary shrink-0" />
