@@ -157,12 +157,12 @@ const Index = () => {
                 <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl" />
 
                 {/* Portrait frame */}
-                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] mx-auto lg:mx-0 lg:ml-auto lg:h-[70vh] lg:max-h-[620px] lg:w-auto">
+                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-auto lg:h-[72vh] lg:max-h-[640px]">
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
                     className="absolute inset-0 w-full h-full object-cover"
-                    style={{ objectPosition: "50% 15%" }}
+                    style={{ objectPosition: "50% 12%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
