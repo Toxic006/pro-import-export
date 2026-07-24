@@ -83,7 +83,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-7xl leading-[1.05] tracking-tight text-foreground"
+                className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-6xl leading-[1.05] tracking-tight text-foreground"
               >
                 Trade, <span className="text-gradient">Trust</span> &
                 <br />
@@ -94,7 +94,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed"
+                className="mt-5 text-sm sm:text-base lg:text-[15px] text-muted-foreground max-w-2xl leading-relaxed"
               >
                 <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE), Oman, Saudi Arabia & Singapore.</strong>
               </motion.p>
@@ -103,7 +103,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.45 }}
-                className="mt-8 flex flex-wrap gap-3"
+                className="mt-6 flex flex-wrap gap-3"
               >
                 <Link
                   to="/products"
@@ -125,7 +125,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-8 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
+                className="mt-6 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
               >
                 {[
                   { k: "37+", v: "Products" },
@@ -133,7 +133,7 @@ const Index = () => {
                   { k: "20+", v: "Years Trust" },
                 ].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3 sm:pl-4">
-                    <p className="font-heading font-bold text-2xl sm:text-3xl text-foreground">{s.k}</p>
+                    <p className="font-heading font-bold text-xl sm:text-2xl lg:text-[26px] text-foreground">{s.k}</p>
                     <p className="text-[11px] sm:text-xs text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
                   </div>
                 ))}
@@ -157,7 +157,7 @@ const Index = () => {
                 <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl" />
 
                 {/* Portrait frame */}
-                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-[5/6] lg:max-h-[68vh] lg:mx-auto">
+                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-auto lg:h-[72vh] lg:max-h-[640px]">
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
