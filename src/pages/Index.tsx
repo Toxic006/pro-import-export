@@ -54,7 +54,7 @@ const Index = () => {
   return (
     <main className="overflow-hidden bg-brand-soft">
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative min-h-[92svh] pt-24 sm:pt-28 pb-12 sm:pb-16 flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative pt-24 sm:pt-28 pb-10 sm:pb-14 lg:min-h-[100svh] lg:flex lg:items-center overflow-hidden">
 
         {/* Decorative background */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
