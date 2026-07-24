@@ -9,9 +9,12 @@ interface LogoProps {
 const Logo = ({ variant = "light", compact = false }: LogoProps) => {
   const textColor = variant === "light" ? "text-foreground" : "text-white";
   const subColor = variant === "light" ? "text-primary" : "text-primary";
+  const handleClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
   return (
-    <Link to="/" className="flex items-center gap-3 group">
+    <Link to="/" onClick={handleClick} className="flex items-center gap-3 group" aria-label="Go to Khadria Groups home page">
       {/* Logo mark: golden phoenix crop, framed to sit beautifully on any bg */}
       <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden ring-1 ring-primary/30 bg-gradient-to-br from-[#1a1a1a] to-[#3a2b0a] shadow-md group-hover:ring-primary/60 transition-all duration-300 shrink-0">
         <img

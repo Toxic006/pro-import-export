@@ -64,9 +64,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] pointer-events-none" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-10 xl:gap-12 items-center">
             {/* Text side */}
-            <div className="lg:col-span-7 order-2 lg:order-1">
+            <div className="lg:col-span-7 xl:col-span-6 order-2 lg:order-1">
               <motion.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -83,7 +83,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-6xl leading-[1.05] tracking-tight text-foreground"
+                className="font-heading font-bold text-[34px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[64px] leading-[1.04] tracking-tight text-foreground"
               >
                 Trade, <span className="text-gradient">Trust</span> &
                 <br />
@@ -94,7 +94,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-5 text-sm sm:text-base lg:text-[15px] text-muted-foreground max-w-2xl leading-relaxed"
+                className="mt-5 text-[15px] sm:text-base lg:text-[16px] text-muted-foreground max-w-2xl leading-relaxed"
               >
                 <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE), Oman, Saudi Arabia & Singapore.</strong>
               </motion.p>
@@ -145,9 +145,9 @@ const Index = () => {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-5 order-1 lg:order-2 relative"
+               className="lg:col-span-5 xl:col-span-6 order-1 lg:order-2 relative"
             >
-              <div className="relative max-w-md mx-auto lg:max-w-none lg:ml-auto">
+              <div className="relative max-w-md mx-auto lg:max-w-[440px] xl:max-w-[500px] lg:ml-auto">
                 {/* Decorative rings */}
                 <motion.div
                   className="absolute -inset-6 rounded-[2rem] border-2 border-primary/15"
@@ -157,12 +157,12 @@ const Index = () => {
                 <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl" />
 
                 {/* Portrait frame */}
-                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-auto lg:h-[72vh] lg:max-h-[640px]">
+                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-[5/6] lg:h-auto lg:min-h-[500px] xl:min-h-[540px] lg:max-h-[72vh]">
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
                     className="absolute inset-0 w-full h-full object-cover"
-                    style={{ objectPosition: "50% 12%" }}
+                    style={{ objectPosition: "50% 14%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
