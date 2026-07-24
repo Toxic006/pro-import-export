@@ -14,15 +14,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Brand column */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3 mb-5">
+            <Link to="/" className="flex items-center gap-3 mb-5 group" aria-label="Go to Khadria Groups home page">
               <div className="w-12 h-12 rounded-full overflow-hidden ring-1 ring-primary/40 bg-black shrink-0">
                 <img src={logo} alt="Khadria Groups" className="w-full h-full object-cover" />
               </div>
               <div className="leading-tight">
-                <p className="font-heading font-bold text-lg tracking-wide">KHADRIA</p>
+                <p className="font-heading font-bold text-lg tracking-wide group-hover:text-primary transition-colors">KHADRIA</p>
                 <p className="text-[11px] uppercase tracking-[0.22em] text-primary font-semibold">Groups</p>
               </div>
-            </div>
+            </Link>
             <p className="text-sm text-white/60 leading-relaxed max-w-sm">
               A global trade house dealing in precious metals, industrial commodities, petroleum products, agri commodities, bank instruments and premium film production — operating across India, Dubai, Oman, Saudi Arabia and Singapore.
             </p>
