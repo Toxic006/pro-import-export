@@ -185,7 +185,7 @@ const Contact = () => {
               <div className="space-y-4">
                 {contactInfo.map((item, i) => (
                   <motion.div
-                    key={item.label}
+                    key={`${item.label}-${item.value}`}
                     custom={i + 1}
                     initial="hidden"
                     whileInView="visible"
