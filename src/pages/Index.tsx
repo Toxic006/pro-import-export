@@ -54,7 +54,7 @@ const Index = () => {
   return (
     <main className="overflow-hidden bg-brand-soft">
       {/* ============ HERO ============ */}
-      <section ref={heroRef} className="relative pt-24 sm:pt-28 pb-10 sm:pb-14 lg:min-h-[100svh] lg:flex lg:items-center overflow-hidden">
+      <section ref={heroRef} className="relative pt-24 sm:pt-28 lg:pt-30 pb-10 sm:pb-14 lg:min-h-[100svh] lg:flex lg:items-start overflow-hidden">
 
         {/* Decorative background */}
         <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
@@ -64,14 +64,14 @@ const Index = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] pointer-events-none" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-10 xl:gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-9 xl:gap-12 items-center">
             {/* Text side */}
-            <div className="lg:col-span-7 xl:col-span-6 order-2 lg:order-1">
+            <div className="lg:col-span-6 order-2 lg:order-1">
               <motion.div
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-full px-3.5 py-1.5 mb-6"
+                className="inline-flex items-center gap-2 bg-primary/10 border border-primary/25 rounded-full px-3.5 py-1.5 mb-5"
               >
                 <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                 <span className="text-primary font-semibold text-[11px] sm:text-xs uppercase tracking-[0.18em]">
@@ -83,7 +83,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="font-heading font-bold text-[34px] sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[64px] leading-[1.04] tracking-tight text-foreground"
+                className="font-heading font-bold text-[36px] sm:text-[46px] md:text-[54px] lg:text-[60px] xl:text-[68px] leading-[1.03] tracking-tight text-foreground"
               >
                 Trade, <span className="text-gradient">Trust</span> &
                 <br />
@@ -94,7 +94,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-5 text-[15px] sm:text-base lg:text-[16px] text-muted-foreground max-w-2xl leading-relaxed"
+                className="mt-4 text-[15px] sm:text-base lg:text-[16px] text-muted-foreground max-w-2xl leading-relaxed"
               >
                 <strong className="text-foreground">Khadria Groups</strong> is a diversified international trade house dealing in precious metals, industrial commodities, petroleum products and premium film production — operating with LC-backed contracts across <strong className="text-foreground">India, Dubai (UAE), Oman, Saudi Arabia & Singapore.</strong>
               </motion.p>
@@ -103,7 +103,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.45 }}
-                className="mt-6 flex flex-wrap gap-3"
+                className="mt-5 flex flex-wrap gap-3"
               >
                 <Link
                   to="/products"
@@ -125,7 +125,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-6 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
+                className="mt-5 grid grid-cols-3 gap-4 sm:gap-6 max-w-lg"
               >
                 {[
                   { k: "37+", v: "Products" },
@@ -133,7 +133,7 @@ const Index = () => {
                   { k: "20+", v: "Years Trust" },
                 ].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3 sm:pl-4">
-                    <p className="font-heading font-bold text-xl sm:text-2xl lg:text-[26px] text-foreground">{s.k}</p>
+                    <p className="font-heading font-bold text-xl sm:text-2xl lg:text-[28px] text-foreground">{s.k}</p>
                     <p className="text-[11px] sm:text-xs text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
                   </div>
                 ))}
@@ -145,24 +145,24 @@ const Index = () => {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-               className="lg:col-span-5 xl:col-span-6 order-1 lg:order-2 relative"
+               className="lg:col-span-6 order-1 lg:order-2 relative"
             >
-              <div className="relative max-w-md mx-auto lg:max-w-[440px] xl:max-w-[500px] lg:ml-auto">
+              <div className="relative max-w-md mx-auto lg:max-w-[470px] xl:max-w-[530px] lg:ml-auto">
                 {/* Decorative rings */}
                 <motion.div
-                  className="absolute -inset-6 rounded-[2rem] border-2 border-primary/15"
+                  className="absolute -inset-4 rounded-[2rem] border-2 border-primary/15"
                   animate={{ rotate: [0, 3, 0] }}
                   transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary/10 blur-2xl" />
 
                 {/* Portrait frame */}
-                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-[5/6] lg:h-auto lg:min-h-[500px] xl:min-h-[540px] lg:max-h-[72vh]">
+                <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl bg-gradient-to-br from-foreground to-foreground/70 aspect-[4/5] lg:aspect-[5/6] lg:h-auto lg:min-h-[500px] xl:min-h-[555px] lg:max-h-[72vh]">
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    style={{ objectPosition: "50% 14%" }}
+                    className="absolute inset-0 w-full h-full object-cover scale-[1.04]"
+                    style={{ objectPosition: "50% 13%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
