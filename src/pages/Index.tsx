@@ -130,7 +130,7 @@ const Index = () => {
                 {[
                   { k: "37+", v: "Products" },
                   { k: "5", v: "Countries" },
-                  { k: "20+", v: "Years Trust" },
+                  { k: "10+", v: "Years Trust" },
                 ].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3 sm:pl-4">
                     <p className="font-heading font-bold text-xl sm:text-2xl lg:text-[28px] text-foreground">{s.k}</p>
