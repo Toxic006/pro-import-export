@@ -147,7 +147,7 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
                className="lg:col-span-6 order-1 lg:order-2 relative"
             >
-              <div className="relative max-w-md mx-auto lg:max-w-[470px] xl:max-w-[530px] lg:ml-auto">
+              <div className="relative max-w-md mx-auto lg:max-w-[470px] xl:max-w-[530px]">
                 {/* Decorative rings */}
                 <motion.div
                   className="absolute -inset-4 rounded-[2rem] border-2 border-primary/15"
