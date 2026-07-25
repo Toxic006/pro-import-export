@@ -231,7 +231,7 @@ const About = () => {
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-                {[{ k: "20+", v: "Years" }, { k: "5", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
+                {[{ k: "10+", v: "Years" }, { k: "5", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3">
                     <p className="font-heading font-bold text-2xl sm:text-3xl text-foreground">{s.k}</p>
                     <p className="text-[11px] text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
