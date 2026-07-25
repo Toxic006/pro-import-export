@@ -53,6 +53,11 @@ const Index = () => {
 
   return (
     <main className="overflow-hidden bg-brand-soft">
+      <SEO
+        title="Khadria Groups | Gold Dealer in Dubai · Global Trade & Commodities"
+        description="Khadria Groups, led by Syed Sharfuddin Al Hashmi — trusted gold dealer in Dubai and international trade house dealing in precious metals, copper, petroleum, agri commodities and film production across India, Dubai, Oman, Saudi Arabia & Singapore."
+        path="/"
+      />
       {/* ============ HERO ============ */}
       <section ref={heroRef} className="relative pt-24 sm:pt-28 lg:pt-30 pb-10 sm:pb-14 lg:min-h-[100svh] lg:flex lg:items-start overflow-hidden">
 
