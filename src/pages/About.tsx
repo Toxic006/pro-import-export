@@ -35,7 +35,7 @@ const values = [
   { icon: Shield, title: "Integrity First", desc: "Every deal is LC-backed and fully documented. No shortcuts." },
   { icon: Award, title: "Certified Quality", desc: "ISO, SGS, LBMA good-delivery, HACCP — the standards that matter." },
   { icon: Globe, title: "Global Reach", desc: "Hubs across India, Dubai, Oman, Saudi Arabia and Singapore." },
-  { icon: Heart, title: "Long-term Trust", desc: "Two decades of repeat business built on transparent partnerships." },
+  { icon: Heart, title: "Long-term Trust", desc: "A decade of repeat business built on transparent partnerships." },
   { icon: Users, title: "People-first Trade", desc: "Fair pricing, faithful contracts and communication that respects your time." },
   { icon: Compass, title: "Diversified Vision", desc: "From bullion to blockbusters — one house, six verticals, endless focus." },
 ];
