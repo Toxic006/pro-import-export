@@ -16,6 +16,7 @@ import {
 import heroPort from "@/assets/hero-port.jpg";
 import preciousMetals from "@/assets/precious-metals.jpg";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -83,6 +84,11 @@ const Contact = () => {
 
   return (
     <main className="overflow-hidden bg-brand-soft">
+      <SEO
+        title="Contact Khadria Groups | Gold Dealer in Dubai — Trade Inquiries"
+        description="Contact Khadria Groups for gold trading, commodities and partnership inquiries. Call +91 81974 25180 or +91 72592 25180, email syed@khadria786.co.in. Present in India, Dubai, Oman, Saudi Arabia & Singapore."
+        path="/contact"
+      />
       {/* Hero Banner — parallax */}
       <section ref={heroRef} className="relative min-h-[52svh] sm:min-h-[48svh] flex items-center justify-center overflow-hidden">
 

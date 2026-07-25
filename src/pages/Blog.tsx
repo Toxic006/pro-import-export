@@ -16,6 +16,7 @@ import copperTrading from "@/assets/copper-trading.jpg";
 import oilRefinery from "@/assets/oil-refinery.jpg";
 import preciousMetals from "@/assets/precious-metals.jpg";
 import businessPartnership from "@/assets/business-partnership.jpg";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -107,6 +108,11 @@ const Blog = () => {
 
   return (
     <main className="overflow-hidden bg-brand-soft">
+      <SEO
+        title="Blog | Insights on Global Trade & Commodities — Khadria Groups"
+        description="Insights from Khadria Groups on gold trading in Dubai, metals, petroleum, agri commodities and international trade across India, Dubai, Oman, Saudi Arabia & Singapore."
+        path="/blog"
+      />
       {/* Hero Banner — parallax */}
       <section ref={heroRef} className="relative min-h-[60svh] sm:min-h-[50svh] flex items-center justify-center overflow-hidden">
         <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />

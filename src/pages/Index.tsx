@@ -22,6 +22,7 @@ import {
 import portrait from "@/assets/brand/syed-sharfuddin.jpeg";
 import logo from "@/assets/brand/khadria-logo.jpeg";
 import { products } from "@/data/products";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -53,6 +54,11 @@ const Index = () => {
 
   return (
     <main className="overflow-hidden bg-brand-soft">
+      <SEO
+        title="Khadria Groups | Gold Dealer in Dubai · Global Trade & Commodities"
+        description="Khadria Groups, led by Syed Sharfuddin Al Hashmi — trusted gold dealer in Dubai and international trade house dealing in precious metals, copper, petroleum, agri commodities and film production across India, Dubai, Oman, Saudi Arabia & Singapore."
+        path="/"
+      />
       {/* ============ HERO ============ */}
       <section ref={heroRef} className="relative pt-24 sm:pt-28 lg:pt-30 pb-10 sm:pb-14 lg:min-h-[100svh] lg:flex lg:items-start overflow-hidden">
 
@@ -162,7 +168,7 @@ const Index = () => {
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
                     className="absolute inset-0 w-full h-full object-cover"
-                    style={{ objectPosition: "50% 18%" }}
+                    style={{ objectPosition: "62% 18%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
