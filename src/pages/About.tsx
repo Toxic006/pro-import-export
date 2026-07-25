@@ -35,7 +35,7 @@ const values = [
   { icon: Shield, title: "Integrity First", desc: "Every deal is LC-backed and fully documented. No shortcuts." },
   { icon: Award, title: "Certified Quality", desc: "ISO, SGS, LBMA good-delivery, HACCP — the standards that matter." },
   { icon: Globe, title: "Global Reach", desc: "Hubs across India, Dubai, Oman, Saudi Arabia and Singapore." },
-  { icon: Heart, title: "Long-term Trust", desc: "Two decades of repeat business built on transparent partnerships." },
+  { icon: Heart, title: "Long-term Trust", desc: "A decade of repeat business built on transparent partnerships." },
   { icon: Users, title: "People-first Trade", desc: "Fair pricing, faithful contracts and communication that respects your time." },
   { icon: Compass, title: "Diversified Vision", desc: "From bullion to blockbusters — one house, six verticals, endless focus." },
 ];
@@ -173,7 +173,8 @@ const About = () => {
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: "50% 15%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/40 to-transparent" />
                   <div className="absolute inset-x-4 bottom-4 sm:inset-x-5 sm:bottom-5">
@@ -219,7 +220,7 @@ const About = () => {
 
               <div className="mt-8 space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating across India, the UAE, Oman, Saudi Arabia and Singapore.
+                  For over a decade, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating across India, the UAE, Oman, Saudi Arabia and Singapore.
                 </p>
                 <p>
                   What began as a small precious-metals desk has grown into a 37-product portfolio spanning gold and diamonds, copper cathodes and iron ore, petroleum and LNG, edible oils and sugar, industrial chemicals — and a thriving global film-production arm covering six Indian cinema industries.
@@ -230,7 +231,7 @@ const About = () => {
               </div>
 
               <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
-                {[{ k: "20+", v: "Years" }, { k: "5", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
+                {[{ k: "10+", v: "Years" }, { k: "5", v: "Countries" }, { k: "37+", v: "Products" }].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3">
                     <p className="font-heading font-bold text-2xl sm:text-3xl text-foreground">{s.k}</p>
                     <p className="text-[11px] text-muted-foreground uppercase tracking-wider mt-0.5">{s.v}</p>
@@ -339,7 +340,7 @@ const About = () => {
               <Target size={14} /> Our Journey
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
-              Two decades of <span className="text-gradient">growth.</span>
+              A decade of <span className="text-gradient">growth.</span>
             </h2>
           </div>
 

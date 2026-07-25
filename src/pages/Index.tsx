@@ -130,7 +130,7 @@ const Index = () => {
                 {[
                   { k: "37+", v: "Products" },
                   { k: "5", v: "Countries" },
-                  { k: "20+", v: "Years Trust" },
+                  { k: "10+", v: "Years Trust" },
                 ].map((s) => (
                   <div key={s.k} className="border-l-2 border-primary/40 pl-3 sm:pl-4">
                     <p className="font-heading font-bold text-xl sm:text-2xl lg:text-[28px] text-foreground">{s.k}</p>
@@ -147,7 +147,7 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
                className="lg:col-span-6 order-1 lg:order-2 relative"
             >
-              <div className="relative max-w-md mx-auto lg:max-w-[470px] xl:max-w-[530px] lg:ml-auto">
+              <div className="relative max-w-md mx-auto lg:max-w-[470px] xl:max-w-[530px]">
                 {/* Decorative rings */}
                 <motion.div
                   className="absolute -inset-4 rounded-[2rem] border-2 border-primary/15"
@@ -161,8 +161,8 @@ const Index = () => {
                   <img
                     src={portrait}
                     alt="Syed Sharfuddin Al Hashmi, Founder of Khadria Groups"
-                    className="absolute inset-0 w-full h-full object-cover scale-[1.04]"
-                    style={{ objectPosition: "50% 13%" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: "50% 18%" }}
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
 
@@ -190,7 +190,7 @@ const Index = () => {
                       <Star key={i} size={11} className="text-primary fill-primary" />
                     ))}
                   </div>
-                  <p className="mt-1.5 font-heading font-bold text-foreground text-sm sm:text-base leading-tight">20+ Years Trade Legacy</p>
+                  <p className="mt-1.5 font-heading font-bold text-foreground text-sm sm:text-base leading-tight">10+ Years Trade Legacy</p>
                   <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Trusted globally</p>
                 </motion.div>
               </div>
