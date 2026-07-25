@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { products, categories, type ProductCategory } from "@/data/products";
 import heroPort from "@/assets/hero-port.jpg";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -57,6 +58,11 @@ const Products = () => {
 
   return (
     <main className="overflow-hidden bg-brand-soft">
+      <SEO
+        title="Products | Gold, Copper, Petroleum & Commodities — Khadria Groups"
+        description="Explore 37+ traded products by Khadria Groups — gold dore & bars, diamonds, copper cathodes & scrap, EN590 diesel, agri commodities and more, sourced across India, Dubai, Oman, Saudi Arabia & Singapore."
+        path="/products"
+      />
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[60svh] sm:min-h-[55svh] flex items-center justify-center overflow-hidden">
         <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />

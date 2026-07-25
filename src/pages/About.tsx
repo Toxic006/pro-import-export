@@ -21,6 +21,7 @@ import {
 import portrait from "@/assets/brand/syed-sharfuddin.jpeg";
 import logo from "@/assets/brand/khadria-logo.jpeg";
 import heroPort from "@/assets/hero-port.jpg";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -114,6 +115,11 @@ const About = () => {
 
   return (
     <main className="overflow-hidden bg-brand-soft">
+      <SEO
+        title="About Khadria Groups | Syed Sharfuddin Al Hashmi, Founder"
+        description="Learn about Khadria Groups and its founder Syed Sharfuddin Al Hashmi — a decade of trusted trade in gold, precious metals, copper, petroleum and film production across India, Dubai, Oman, Saudi Arabia & Singapore."
+        path="/about"
+      />
       {/* Hero */}
       <section ref={heroRef} className="relative min-h-[60svh] flex items-center justify-center overflow-hidden">
         <motion.img src={heroPort} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ scale: heroScale }} aria-hidden="true" />

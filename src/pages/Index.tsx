@@ -22,6 +22,7 @@ import {
 import portrait from "@/assets/brand/syed-sharfuddin.jpeg";
 import logo from "@/assets/brand/khadria-logo.jpeg";
 import { products } from "@/data/products";
+import SEO from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
