@@ -220,7 +220,7 @@ const About = () => {
 
               <div className="mt-8 space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
-                  For over two decades, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating across India, the UAE, Oman, Saudi Arabia and Singapore.
+                  For over a decade, <strong className="text-foreground">Syed Sharfuddin Al Hashmi</strong> has built Khadria Groups into a diversified international trade house operating across India, the UAE, Oman, Saudi Arabia and Singapore.
                 </p>
                 <p>
                   What began as a small precious-metals desk has grown into a 37-product portfolio spanning gold and diamonds, copper cathodes and iron ore, petroleum and LNG, edible oils and sugar, industrial chemicals — and a thriving global film-production arm covering six Indian cinema industries.
