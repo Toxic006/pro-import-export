@@ -57,7 +57,7 @@ const trustBadges = [
   { icon: Shield, label: "LC-Based Contracts" },
   { icon: Globe, label: "5 Countries" },
   { icon: CheckCircle2, label: "Full Documentation" },
-  { icon: Handshake, label: "20+ Years Trust" },
+  { icon: Handshake, label: "10+ Years Trust" },
 ];
 
 const presenceCountries = [
