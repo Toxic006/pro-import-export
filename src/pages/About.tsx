@@ -340,7 +340,7 @@ const About = () => {
               <Target size={14} /> Our Journey
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight">
-              Two decades of <span className="text-gradient">growth.</span>
+              A decade of <span className="text-gradient">growth.</span>
             </h2>
           </div>
 
