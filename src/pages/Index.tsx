@@ -190,7 +190,7 @@ const Index = () => {
                       <Star key={i} size={11} className="text-primary fill-primary" />
                     ))}
                   </div>
-                  <p className="mt-1.5 font-heading font-bold text-foreground text-sm sm:text-base leading-tight">20+ Years Trade Legacy</p>
+                  <p className="mt-1.5 font-heading font-bold text-foreground text-sm sm:text-base leading-tight">10+ Years Trade Legacy</p>
                   <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Trusted globally</p>
                 </motion.div>
               </div>
