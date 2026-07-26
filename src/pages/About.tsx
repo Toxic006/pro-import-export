@@ -143,7 +143,7 @@ const About = () => {
             className="text-3xl sm:text-5xl md:text-6xl font-heading font-bold leading-[1.1] max-w-4xl mx-auto text-white"
             style={{ textShadow: "0 4px 30px rgba(0,0,0,0.5)" }}
           >
-            Twenty years of <span className="text-primary">honest trade.</span>
+            A decade of <span className="text-primary">honest trade.</span>
           </motion.h1>
 
           <motion.p

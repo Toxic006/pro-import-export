@@ -257,8 +257,11 @@ const Contact = () => {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="group">
-                    <label className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Your Name *</label>
+                    <label htmlFor="cf-name" className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Your Name *</label>
                     <input
+                      id="cf-name"
+                      name="name"
+                      autoComplete="name"
                       type="text"
                       required
                       value={form.name}
@@ -267,8 +270,11 @@ const Contact = () => {
                     />
                   </div>
                   <div className="group">
-                    <label className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Your Email *</label>
+                    <label htmlFor="cf-email" className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Your Email *</label>
                     <input
+                      id="cf-email"
+                      name="email"
+                      autoComplete="email"
                       type="email"
                       required
                       value={form.email}
@@ -279,8 +285,11 @@ const Contact = () => {
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="group">
-                    <label className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Phone Number</label>
+                    <label htmlFor="cf-phone" className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Phone Number</label>
                     <input
+                      id="cf-phone"
+                      name="phone"
+                      autoComplete="tel"
                       type="tel"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -288,8 +297,10 @@ const Contact = () => {
                     />
                   </div>
                   <div className="group">
-                    <label className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Subject *</label>
+                    <label htmlFor="cf-subject" className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Subject *</label>
                     <input
+                      id="cf-subject"
+                      name="subject"
                       type="text"
                       required
                       value={form.subject}
@@ -299,8 +310,10 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="group">
-                  <label className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Message *</label>
+                  <label htmlFor="cf-message" className="block text-sm font-medium text-foreground mb-1.5 group-focus-within:text-primary transition-colors duration-300">Message *</label>
                   <textarea
+                    id="cf-message"
+                    name="message"
                     required
                     rows={5}
                     value={form.message}

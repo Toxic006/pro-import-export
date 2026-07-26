@@ -5,22 +5,30 @@ interface SEOProps {
   description: string;
   path: string;
   type?: string;
+  noindex?: boolean;
 }
 
-const SEO = ({ title, description, path, type = "website" }: SEOProps) => (
-  <Helmet>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={path} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content={type} />
-    <meta property="og:url" content={path} />
-    <meta property="og:site_name" content="Khadria Groups" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-  </Helmet>
-);
+const SITE_URL =
+  typeof window !== "undefined" ? window.location.origin : "https://khadriagroups.com";
+
+const SEO = ({ title, description, path, type = "website", noindex = false }: SEOProps) => {
+  const url = `${SITE_URL}${path === "/" ? "/" : path}`;
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={url} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content="Khadria Groups" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+    </Helmet>
+  );
+};
 
 export default SEO;
